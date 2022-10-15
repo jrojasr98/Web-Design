@@ -146,3 +146,75 @@ class Auto {
 var otroAuto = new Auto("Toyota", "Tacoma", 2020);
 
 console.log(otroAuto.info());
+
+/**
+ *
+ *  ********************************  Tarea  ********************************
+ * ******************************** Hacer 3 objetos diferentes con la forma de eleccion vistas en clase ********************************
+ */
+
+//Objeto - test
+var objeto1 = {
+  nombre: "Objeto1",
+  tipo: "tipoObj1",
+  imprime: function () {
+    return `Soy el objeto: ${this.nombre} y soy de tipo ${this.tipo}`;
+  },
+};
+console.log(objeto1.imprime());
+
+console.log("***************** Objeto 1 *****************");
+//Clase estudiante, se crea el constructor y las funciones para imprimir los distintos datos
+class Estudiante {
+  constructor(nombre, asignaciones, edad) {
+    this.nombre = nombre;
+    this.asignaciones = asignaciones;
+    this.edad = edad;
+  }
+  imprimeAsignaciones(asignaciones) {
+    let msj = "";
+    asignaciones.forEach((valor, index) => {
+      msj += `\n- ${valor}`;
+    });
+    return msj;
+  }
+  imprimeEstudiante() {
+    return `Mi nombre es: ${this.nombre} tengo: ${
+      this.edad
+    } \nCurso las asignaciones:${this.imprimeAsignaciones(this.asignaciones)}`;
+  }
+}
+
+// Se crea un estudiante con datos especificos
+var estudiante = new Estudiante("Diego", ["Diseno Web", "Argumentacion"], 24);
+
+//Se imprime por consola los datos utilizando la funcion de imprimir en la clase Estudiante.
+console.log(estudiante.imprimeEstudiante());
+
+console.log("***************** Objeto 2 *****************");
+
+class Asignaciones {
+  constructor(nombre, nota, aprobado, profesor) {
+    this.nombre = nombre;
+    this.nota = nota;
+    this.aprobado = aprobado;
+    this.profesor = profesor;
+  }
+
+  estado = (estado) => {
+    if (estado) {
+      return "Aprobado";
+    } else {
+      return "Reprobado";
+    }
+  };
+
+  imprime() {
+    return `Estudiante: ${this.nombre}\nProfesor: ${this.profesor}\nNota: ${
+      this.nota
+    }\nEstado: ${this.estado(this.aprobado)}`;
+  }
+}
+
+var asignacion1 = new Asignaciones("Diego", 75, false, "Warner");
+console.log(asignacion1.imprime());
